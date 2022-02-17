@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+        Digital Clock JS project
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+    <!--Java script-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<div class="main-container1">
+    <div class="container1">
+
+    </div>
+    <div class="container2">
+        <div class="grid-item" id="div1">
+            <div class="wake-pic pic">
+
+            </div>
+            <div class="div11">
+            <label>Set wake up time</label>
+            <select id="wakeuptime" onchange="display_time(this,'waket')">
+                <option>Default</option>
+                <option value="0">12 AM - 1 AM</option>
+                <option value="1"> 1AM - 2 AM</option>
+                <option value="2">2 AM - 3 AM</option>
+                <option value="3">3 AM - 4 AM</option>
+                <option value="4">4 AM - 5 AM</option>
+                <option value="5">5 AM - 6 AM</option>
+                <option value="6">6 AM - 7 AM</option>
+                <option value="7">7 AM - 8 AM</option>
+                <option value="8">8 AM - 9 AM</option>
+                <option value="9">9 AM - 10 AM</option>
+                <option value="10">10 AM - 11 AM</option>
+            </select>
+            </div>
+        </div>
+
+        <div class="grid-item"  id="div2">
+            <div class="lunch-pic pic">
+
+            </div>
+            <div class="div22">
+            <label>Set lunch time</label>
+            <select id="lunchtime" onchange="display_time(this,'luncht')">
+                <option>Default</option>
+                <option value="10">10 AM - 11 AM</option>
+                <option value="11">11 AM - 12 PM</option>
+                <option value="12">12 PM - 1 PM</option>
+                <option value="13">1 PM - 2 PM</option>
+                <option value="14">2 PM - 3 PM</option>
+                <option value="15">3 PM - 4 PM</option>
+                <option value="16">4 PM - 5 PM</option>
+            </select>
+            </div>
+        </div>
+        <div class="grid-item" id="div3">
+            <div class="nap-pic pic">
+
+            </div>
+            <div class="div33">
+            <LABEL>Set nap time</LABEL>
+            <select id="naptime" onchange="display_time(this,'napt')">
+                <option>Default</option>
+                <option value="13">1 PM - 2 PM</option>
+                <option value="14">2 PM - 3 PM</option>
+                <option value="15">3 PM - 4 PM</option>
+                <option value="16">4 PM - 5 PM</option>
+                <option value="17">5 PM - 6 PM</option>
+                <option value="18">6 PM - 7 PM</option>
+                <option value="19">7 PM - 8 PM</option>
+            </select>
+            </div>
+        </div>
+        <div class="grid-item" id="div4">
+            <div class="night-pic pic">
+
+            </div>
+            <div class="div44">
+            <label>Set night time</label>
+            <select id="nighttime" onchange="display_time(this,'sleept')">
+                <option>Default</option>
+                <option value="18">6 PM - 7 PM</option>
+                <option value="19">7 PM - 8 PM</option>
+                <option value="20">8 PM - 9 PM</option>
+                <option value="21">9 PM - 10 PM</option>
+                <option value="22">10 PM - 11 PM</option>
+                <option value="23">11 PM - 12 AM</option>
+                <option value="0">12 AM - 1 AM</option>
+                <option value="1">1 AM - 2 AM</option>
+            </select>
+            </div>
+        </div>
+        
+    </div>
+    <div class="container3">
+        <div class="container3-text">
+            Go
+        </div>
+    </div>
+    <div class="container4">
+        <button id="submit_button" onclick="set_alarm()">Set Alarm</button>
+    </div>
+
+</div>
+
+
+<div class="main-container2">
+    <div class="clock">
+        <div class="clock-content">
+            <p class="time-text">Time</p>
+            <div class="hours-box">
+                <span class="clock-text" id="hours">00</span>
+                <p class="sub-text">Hrs</p>
+            </div>
+            <div class="minutes-box">
+                <span class="clock-text" id="minutes">00</span>>
+                <p class="sub-text">mins</p>
+            </div>
+            <div class="seconds-box">
+                <span class="clock-text" id="seconds">00</span>
+                <p class="sub-text">secs</p>
+            </div>
+            <div class="am-pm-box">
+                <span class="am-pm-text" id="ampm">AM</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="box1">
+        
+    </div>
+    <div class="box2">
+       
+    </div>
+    <div class="right-message">
+        <p class="right-message-text">
+            Yo
+        </p>
+    </div>
+    <div class="right-image">
+
+    </div>
+</div>
+<div class="instruct-msg">
+    <p class="instruct-text">
+        The message and image will change according to the time
+    </p>
+</div>
+<!--time summary-->
+<div class="time-summary">
+    <p class="time-summary-text">
+        Wakeup Time: <span id="waket"></span><br>
+        Lunch Time: <span id="luncht"></span><br>
+        Nap Time: <span id="napt"></span><br>
+        Sleep Time: <span id="sleept"></span><br>
+    </p>
+</div>
+
+
+
+
+
+<!--JS and Jquery file inclusion-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <script src="index.js"></script>
+</body>
+</html>
